@@ -12,8 +12,8 @@ async function fetchAboutData() {
         document.getElementById('form-title').textContent = aboutData?.form?.title
         document.getElementById('form-subtitle').textContent = aboutData?.form?.subtitle
 
-        document.getElementById('image1').src = 'https://a-abdullox.uz' + aboutData?.image1?.url
-        document.getElementById('image2').src = 'https://a-abdullox.uz' + aboutData?.image2?.url
+        document.getElementById('image1').src = 'https://a-abdullox.uz/' + aboutData?.image1?.url
+        document.getElementById('image2').src = 'https://a-abdullox.uz/' + aboutData?.image2?.url
 
         document.getElementById('title-card').textContent = aboutData?.cards_title
 
@@ -24,7 +24,7 @@ async function fetchAboutData() {
                 <div class="relative">
                     <div class="bg-white rounded-2xl shadow-lg p-8 relative z-10 h-full">
                         <div class="w-12 h-12 bg-brand-100 rounded-2xl flex items-center justify-center mb-6">
-                                <img src="${'https://a-abdullox.uz' + card?.icon?.url}" alt="${card?.title}-icon">
+                                <img src="${'https://a-abdullox.uz/' + card?.icon?.url}" alt="${card?.title}-icon">
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-4">${card?.title}</h3>
                         <p class="text-gray-600">
