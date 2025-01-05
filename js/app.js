@@ -12,26 +12,26 @@ async function fetchAboutData() {
         document.getElementById('form-title').textContent = aboutData?.form?.title
         document.getElementById('form-subtitle').textContent = aboutData?.form?.subtitle
 
-        document.getElementById('image1').src = aboutData?.image1?.url
-        document.getElementById('image2').src = aboutData?.image2?.url
+        document.getElementById('image1').src = aboutData?.image1?.url.replace('http://176.124.210.146:3000', 'https://a-abdullox.uz')
+        document.getElementById('image2').src = aboutData?.image2?.url.replace('http://176.124.210.146:3000', 'https://a-abdullox.uz')
 
         document.getElementById('title-card').textContent = aboutData?.cards_title
 
         const cardsContainer = document.getElementById('about-cards')
         aboutData.cards.forEach(card => {
-            console.log(card.icon.url)
+            const iconUrl = card.icon.url.replace('http://176.124.210.146:3000', 'https://a-abdullox.uz')
+            console.log(iconUrl)
             cardsContainer.innerHTML += `
                 <div class="relative">
                     <div class="bg-white rounded-2xl shadow-lg p-8 relative z-10 h-full">
                         <div class="w-12 h-12 bg-brand-100 rounded-2xl flex items-center justify-center mb-6">
-                                <img src="${card?.icon?.url}" alt="${card?.title}-icon">
+                            <img src="${iconUrl}" alt="${card?.title}-icon">
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-4">${card?.title}</h3>
-                        <p class="text-gray-600">
-                            ${card?.description}</p>
+                        <p class="text-gray-600">${card?.description}</p>
                     </div>
                 </div>
-        `
+            `
         })
     } catch (error) {
         console.error('Error fetching about data:', error)
@@ -61,7 +61,6 @@ document.getElementById('ctaForm').addEventListener('submit', async function (e)
         })
 
         if (response.ok) {
-            // Clear form after successful submission
             this.reset()
             alert('Thank you! Your form has been submitted successfully.')
         } else {
